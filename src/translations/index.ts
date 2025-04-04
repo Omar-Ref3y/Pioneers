@@ -1,0 +1,26 @@
+export const translations = {
+  en: {
+    about: 'About',
+    departments: 'Departments',
+    projects: 'Projects',
+    internships: 'Internships',
+    contact: 'Contact',
+    aboutTitle: 'About Pioneers',
+    aboutText: 'We are a forward-thinking technology company dedicated to pushing the boundaries of innovation. Our mission is to develop cutting-edge solutions that address real-world challenges and shape the future of technology.',
+    projectsTitle: 'Our Projects',
+    internshipsTitle: 'Join Our Internship Program',
+    contactTitle: 'Get in Touch',
+  },
+  ar: {
+    about: 'عن الشركة',
+    departments: 'الأقسام',
+    projects: 'المشاريع',
+    internships: 'التدريب',
+    contact: 'اتصل بنا',
+    aboutTitle: 'عن الشركة',
+    aboutText: 'نحن شركة تكنولوجية تتطلع إلى المستقبل وتكرس جهودها لدفع حدود الابتكار. مهمتنا هي تطوير حلول متطورة تعالج تحديات العالم الحقيقي وتشكل مستقبل التكنولوجيا.',
+    projectsTitle: 'مشاريعنا',
+    internshipsTitle: 'انضم إلى برنامج التدريب',
+    contactTitle: 'تواصل معنا',
+  },
+} as const;
