@@ -1,5 +1,16 @@
 import { useEffect } from 'react';
 import { useLanguage } from './hooks/useLanguage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageProvider';
+import { AuthProvider } from './context/AuthContext';
+import { DataProvider } from './context/DataContext';
+import ProtectedRoute from './components/admin/ProtectedRoute';
+import AdminLayout from './components/admin/AdminLayout';
+import Login from './pages/Login';
+import ProjectsPage from './pages/admin/ProjectsPage';
+import DepartmentsPage from './pages/admin/DepartmentsPage';
+import ContentPage from './pages/admin/ContentPage';
+
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -10,7 +21,7 @@ import InternshipSection from './components/InternshipSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-function App() {
+const HomePage = () => {
   const { language } = useLanguage();
 
   useEffect(() => {
@@ -61,6 +72,38 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AuthProvider>
+        <LanguageProvider>
+          <DataProvider>
+            <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            
+            {/* Admin Routes */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<ProjectsPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="departments" element={<DepartmentsPage />} />
+              <Route path="content" element={<ContentPage />} />
+            </Route>
+            </Routes>
+          </DataProvider>
+        </LanguageProvider>
+      </AuthProvider>
+    </Router>
+  );
+};
 
 export default App;

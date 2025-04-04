@@ -1,5 +1,12 @@
 import { createContext } from 'react';
-import { LanguageContextType } from './languageTypes';
+
+type Language = 'en' | 'ar';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  toggleLanguage: () => void;
+}
 
 export const LanguageContext = createContext<LanguageContextType>({
   language: 'en',
