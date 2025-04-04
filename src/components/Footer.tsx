@@ -17,11 +17,11 @@ const Footer = () => {
       },
       contact: {
         title: 'Contact Us',
-        address: '123 Innovation Street, Tech Valley',
-        email: 'info@pioneers.com',
-        phone: '+1 234 567 890'
+        address: 'Sohag - City Area - Near Daif Allah Mosque - Directly Behind Al-Raya Mall, Markaz Sohag, Sohag, Egypt.',
+        email: 'pioneers.program@gmail.com',
+        phone: '+20 112 567 6074'
       },
-      copyright: ' 2025 Pioneers. All rights reserved.'
+      copyright: ' 2025 Omar-Refay. All rights reserved.'
     },
     ar: {
       about: {
@@ -34,11 +34,11 @@ const Footer = () => {
       },
       contact: {
         title: 'اتصل بنا',
-        address: '123 شارع الابتكار، وادي التكنولوجيا',
-        email: 'info@pioneers.com',
-        phone: '+1 234 567 890'
+        address: 'سوهاج - منطقة سيتي - عند مسجد ضيف الله - خلف مول الراية مباشرة, مركز سوهاج، سوهاج, Sohag, Egypt',
+        email: 'pioneers.program@gmail.com',
+        phone: '+20 112 567 6074'
       },
-      copyright: ' 2025 بايونيرز. جميع الحقوق محفوظة.'
+      copyright: ' 2025 Omar-Refay. All rights reserved.'
     }
   };
 
@@ -118,7 +118,7 @@ const Footer = () => {
           }`}
         >
           <p className="text-gray-400">
-            {content[language].copyright}
+          &#169; {content[language].copyright}
           </p>
         </motion.div>
       </div>
