@@ -1,30 +1,20 @@
-import React, { createContext, useState } from 'react';
+import React from 'react';
+import { useLanguageHooks } from '../hooks/useLanguageHooks';
 
-type Language = 'en' | 'ar';
+export type Language = 'en' | 'ar';
 
-interface LanguageContextType {
+export interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
 }
 
-export const LanguageContext = createContext<LanguageContextType>({
-  language: 'en',
-  setLanguage: () => {},
-  toggleLanguage: () => {},
-});
+export const LanguageContext = React.createContext<LanguageContextType | null>(null);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
-
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
-    // Update document direction
-    document.documentElement.dir = language === 'en' ? 'rtl' : 'ltr';
-  };
+  const { language, toggleLanguage } = useLanguageHooks();
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
